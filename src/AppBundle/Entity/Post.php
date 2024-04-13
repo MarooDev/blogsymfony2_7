@@ -49,6 +49,13 @@ class Post
      */
     private $createdAt;
 
+    /**
+     * @var 
+     *
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     */
+    private $comments;
+
 
     /**
      * Get id

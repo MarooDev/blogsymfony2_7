@@ -21,6 +21,13 @@ class User
      */
     private $id;
 
+    /**
+     * @var 
+     *
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="user")
+     */
+    private $comments;
+
 
     /**
      * Get id

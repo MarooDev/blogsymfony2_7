@@ -35,6 +35,20 @@ class Comment
      */
     private $createdAt;
 
+    /**
+     * @var type
+     *
+     * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
+     */
+    private $post;
+
+        /**
+     * @var type
+     *
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
+     */
+    private $user;
+
 
     /**
      * Get id
