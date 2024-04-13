@@ -15,7 +15,11 @@
         "php": ">=5.3.9",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/orm": "^2.4.8",
+        "easycorp/easyadmin-bundle": "1.x",
+        "friendsofsymfony/user-bundle": "^2.0",
+        "fzaninotto/faker": "1.5.0",
         "incenteev/composer-parameter-handler": "~2.0",
+        "knplabs/knp-paginator-bundle": "2.5.0",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "symfony/assetic-bundle": "~2.3",
@@ -25,6 +29,7 @@
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "2.x",
         "sensio/generator-bundle": "~2.3",
         "symfony/phpunit-bridge": "~2.7"
     },
