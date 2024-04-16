@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e46b8ec71b43a9d33e7df8d86acf60a1",
+    "content-hash": "c2e971c635822a37a9d60392049ccd0f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1180,31 +1180,32 @@
         },
         {
             "name": "knplabs/knp-paginator-bundle",
-            "version": "2.5.0",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "4a1daf55560ca7cf9c13b357135d72f4dc13375f"
+                "reference": "293abb6a2f1ae53ace5796d0ef3e5ae1b8f92371"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/4a1daf55560ca7cf9c13b357135d72f4dc13375f",
-                "reference": "4a1daf55560ca7cf9c13b357135d72f4dc13375f",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/293abb6a2f1ae53ace5796d0ef3e5ae1b8f92371",
+                "reference": "293abb6a2f1ae53ace5796d0ef3e5ae1b8f92371",
                 "shasum": ""
             },
             "require": {
                 "knplabs/knp-components": "~1.2",
                 "php": ">=5.3.3",
-                "symfony/framework-bundle": "~2.3",
-                "twig/twig": "~1.12"
+                "symfony/framework-bundle": "~2.7|~3.0",
+                "twig/twig": "~1.12|~2"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.4"
+                "phpunit/phpunit": "~4.8",
+                "symfony/expression-language": "~2.7|~3.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4.x-dev"
+                    "dev-master": "2.5.x-dev"
                 }
             },
             "autoload": {
@@ -1241,7 +1242,7 @@
                 "issues": "https://github.com/KnpLabs/KnpPaginatorBundle/issues",
                 "source": "https://github.com/KnpLabs/KnpPaginatorBundle/tree/master"
             },
-            "time": "2015-09-07T04:31:31+00:00"
+            "time": "2017-06-09T15:25:39+00:00"
         },
         {
             "name": "kriswallsmith/assetic",

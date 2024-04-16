@@ -12,6 +12,10 @@
         </div>
     {% endfor %}
 
+    <div>
+    {{ knp_pagination_render(posts) }}
+    </div>
+
 {% endblock %}
 
 {% block stylesheets %}

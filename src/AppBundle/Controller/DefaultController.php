@@ -19,13 +19,17 @@ class DefaultController extends Controller
         $query = $queryBuilder
             ->select('p')
             ->from('AppBundle:Post', 'p')
-            ->setMaxResults(5)
-            ->orderBy('p.createdAt', 'DESC')
-            ->getQuery();
+            ->orderBy('p.createdAt', 'DESC');
 
-        $posts = $query->getResult();
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->get('page', 1),
+            20
+        );    
+
         return $this->render('default/index.html.twig', array(
-'posts' =>$posts
+            'posts' => $pagination
         ));
     }
 }
