@@ -1,23 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Blog</h1>
+    <div class="container">
+        <h1>Blog</h1>
 
-    {% for post in posts %}
+        {% for post in posts %}
+            <div>
+                <h2>{{ post.title }}</h2>
+                <p>
+                    {{ post.lead }}
+                </p>
+            </div>
+        {% endfor %}
+
         <div>
-            <h2>{{ post.title }}</h2>
-            <p>
-                {{ post.lead }}
-            </p>
+        {{ knp_pagination_render(posts) }}
         </div>
-    {% endfor %}
-
-    <div>
-    {{ knp_pagination_render(posts) }}
     </div>
-
 {% endblock %}
 
-{% block stylesheets %}
-
-{% endblock %}

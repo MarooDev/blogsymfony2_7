@@ -19,7 +19,7 @@
         "friendsofsymfony/user-bundle": "^2.0",
         "fzaninotto/faker": "1.5.0",
         "incenteev/composer-parameter-handler": "~2.0",
-        "knplabs/knp-paginator-bundle": "2.6.0",
+        "knplabs/knp-paginator-bundle": "3.0.0",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "symfony/assetic-bundle": "~2.3",
