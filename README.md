@@ -1,72 +1,71 @@
-Symfony Standard Edition
-========================
+# Symfony 2.7 Docker Starter
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+This project contains only the Docker configuration for running a legacy Symfony 2.7 application with PHP 5.6 and Apache.
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+## How to run
 
-What's inside?
---------------
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
+   cd your-repo
+   ```
 
-The Symfony Standard Edition is configured with the following defaults:
+2. **Add your Symfony 2.7 project files**  
+   Place your Symfony 2.7 application files in this directory.
 
-  * An AppBundle you can use to start coding;
+3. **Build the Docker image:**
+   ```bash
+   docker compose build
+   ```
 
-  * Twig as the only configured template engine;
+4. **Start the container:**
+   ```bash
+   docker compose up -d
+   ```
 
-  * Doctrine ORM/DBAL;
+5. **Install PHP dependencies (Composer):**
+   ```bash
+   docker compose exec app composer install
+   ```
+   This will create the `vendor` directory and generate required cache files.
 
-  * Swiftmailer;
+6. **Set permissions for cache and logs directories:**
+   ```bash
+   docker compose exec app chown -R www-data:www-data app/cache app/logs
+   docker compose exec app chmod -R 755 app/cache app/logs
+   ```
 
-  * Annotations enabled for everything.
+7. **Access the application:**  
+   Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-It comes pre-configured with the following bundles:
+8. **Set PHP timezone (optional but recommended):**
+   Add to your Symfony `app/config/parameters.yml`:
+   ```yaml
+   parameters:
+     date_timezone: Europe/Warsaw
+   ```
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+   Or set in your code (e.g. in `app/AppKernel.php`):
+   ```php
+   date_default_timezone_set('Europe/Warsaw');
+   ```
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+## Using phpMyAdmin
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+After starting the containers, phpMyAdmin will be available at [http://localhost:8081](http://localhost:8081).
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+**Login instructions:**
+- Use the credentials and server name defined in your `.env` file.
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+**Importing your database:**
+- After logging in, use the "Import" tab in phpMyAdmin to upload your `.sql` file (e.g. `symfony27.sql`) and create the necessary tables
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
+## Notes
 
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+- The container uses PHP 5.6 and Apache.
+- Your project files are mounted into `/var/www/html` inside the container.
+- For Composer support, Composer is installed in the container and you should run `composer install` after starting the container.
+- Make sure your Symfony project contains a valid `composer.json` file.
 
-  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
-    library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/2.7/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/2.7/doctrine.html
-[8]:  https://symfony.com/doc/2.7/templating.html
-[9]:  https://symfony.com/doc/2.7/security.html
-[10]: https://symfony.com/doc/2.7/email.html
-[11]: https://symfony.com/doc/2.7/logging.html
-[12]: https://symfony.com/doc/2.7/assetic/asset_management.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
+---
+**English comments are used in configuration files. For help, contact the repository maintainer.**
